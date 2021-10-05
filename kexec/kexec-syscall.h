@@ -134,6 +134,7 @@ static inline long kexec_file_load(int kernel_fd, int initrd_fd,
 #define KEXEC_ARCH_MIPS_LE (10 << 16)
 #define KEXEC_ARCH_MIPS    ( 8 << 16)
 #define KEXEC_ARCH_CRIS    (76 << 16)
+#define KEXEC_ARCH_RISCV   (243 << 16)
 
 #define KEXEC_MAX_SEGMENTS 16
 
@@ -176,6 +177,9 @@ static inline long kexec_file_load(int kernel_fd, int initrd_fd,
 #endif
 #if defined(__arm64__)
 #define KEXEC_ARCH_NATIVE	KEXEC_ARCH_ARM64
+#endif
+#if defined(__riscv__) || defined(__riscv)
+#define KEXEC_ARCH_NATIVE	KEXEC_ARCH_RISCV
 #endif
 
 #endif /* KEXEC_SYSCALL_H */
